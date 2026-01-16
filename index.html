@@ -346,31 +346,43 @@ Lembre-se sempre de jogar de forma saudável e responsável, aproveitando a dive
           var valorTotal = document.getElementById('valor-total');
           var link;
   
-          botoesCotas.forEach(function (botao) {
-              botao.classList.remove('cota-selected');
-              var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
-              if (valorBotao === valorAtual) {
-                  botao.classList.add('cota-selected');
-                  switch (valorBotao) {
-                      case 20:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946666265&store=26409";
-                          break;
-                      case 40:
-                      case 40:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640956653733&store=26409";
-                          break;
-                      case 60:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640967331562&store=26409";
-                          break;
-                      case 80:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640954421532&store=26409";
-                          break;
-                      case 100:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946997136&store=26409";
-                          break;
-                              case 200:
-                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640941621775&store=26409";
-                          break;
+        botoesCotas.forEach(function (botao) {
+    botao.classList.remove('cota-selected');
+
+    var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
+
+    if (valorBotao === valorAtual) {
+        botao.classList.add('cota-selected');
+
+        switch (valorBotao) {
+
+            case 10:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=SEU_PRODUTO_10&store=26409";
+                break;
+
+            case 20:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946666265&store=26409";
+                break;
+
+            case 30:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=SEU_PRODUTO_30&store=26409";
+                break;
+
+            case 40:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640956653733&store=26409";
+                break;
+
+            case 60:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640967331562&store=26409";
+                break;
+
+            case 100:
+                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946997136&store=26409";
+                break;
+        }
+    }
+});
+
                   
                       default:
                           break;
