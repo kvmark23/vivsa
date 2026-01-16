@@ -2,13 +2,10 @@
 </body>
 </html>
 <html lang="pt-BR"><head> 
-<script>
-  window.kwaiPixelId = "6969e3c119341eaf6c4ce581";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-kwai.js");
-  document.head.appendChild(a);
+<script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="9d153799-e8de-4f79-b7f9-31d665b71663"
+        data-click-id-param="click_id">
 </script>
 
 <!-- Facebook Pixel Code -->
@@ -99,7 +96,7 @@ src="https://www.facebook.com/tr?id=634450442547482&ev=PageView&noscript=1"
 <script>
   function atualizarContador() {
     var span = document.getElementById('contador');
-    span.textContent = '(16/01)';
+    span.textContent = '(24/07)';
   }
 
   atualizarContador();
@@ -112,30 +109,30 @@ src="https://www.facebook.com/tr?id=634450442547482&ev=PageView&noscript=1"
   
       <!-- COTAS -->
   
-  <div class="cotas">
+      <div class="cotas">
   
         <div class="cotas-one">
-                    <button type="button" class="cota" onclick="selecionarValor(10)">
+                    <button type="button" class="cota" onclick="selecionarValor(20)">
               <div class="cota-qtd">                    
-                  +10
+                  +15
               </div>
-              <h1>R$9,90</h1>
+              <h1>R$14,90</h1>
               <h2>SELECIONAR</h2>
           </button>
   
-          <button type="button" class="cota" onclick="selecionarValor(20)">
+          <button type="button" class="cota" onclick="selecionarValor(40)">
               <div class="cota-qtd">
-                  +20
+                  +30
               </div>
-              <h1>R$19,80</h1>
+              <h1>R$29,90</h1>
               <h2>SELECIONAR</h2>
           </button>
   
-          <button type="button" class="cota" onclick="selecionarValor(30)">
+          <button type="button" class="cota" onclick="selecionarValor(60)">
               <div class="cota-qtd">
-              +30
+              +60
               </div>
-              <h1>R$29,70</h1>
+              <h1>R$59,90</h1>
               <h2>SELECIONAR</h2>
           </button>
   
@@ -145,30 +142,30 @@ src="https://www.facebook.com/tr?id=634450442547482&ev=PageView&noscript=1"
   
         <div class="cotas-one">
             
-            <button type="button" class="cota" onclick="selecionarValor(40)">
+            <button type="button" class="cota" onclick="selecionarValor(80)">
               <i class="bi bi-star-fill destaque"></i>
               <div class="cota-qtd">
-              +40
+              +80
               </div>
-              <h1>R$39,60</h1>
+              <h1>R$79,90</h1>
               <h2>SELECIONAR</h2>
           </button>
   
           
   
-          <button type="button" class="cota" onclick="selecionarValor(60)">
-              <div class="cota-qtd">
-              +60
-              </div>
-              <h1>R$59,40</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-          
           <button type="button" class="cota" onclick="selecionarValor(100)">
               <div class="cota-qtd">
               +100
               </div>
-              <h1>R$99,00</h1>
+              <h1>R$99,90</h1>
+              <h2>SELECIONAR</h2>
+          </button>
+          
+          <button type="button" class="cota" onclick="selecionarValor(200)">
+              <div class="cota-qtd">
+              +200
+              </div>
+              <h1>R$199,90</h1>
               <h2>SELECIONAR</h2>
           </button>
   
@@ -196,10 +193,6 @@ src="https://www.facebook.com/tr?id=634450442547482&ev=PageView&noscript=1"
       <button type="button" id="btn-adicionar-carrinho" class="adc-carrinho" onclick="adicionarAoCarrinho()" disabled="">
           <i class="bi bi-cart-fill"></i> COMPRAR TÍTULOS
       </button>
-
-
-
-  
   
   
   
@@ -316,43 +309,31 @@ Lembre-se sempre de jogar de forma saudável e responsável, aproveitando a dive
           var valorTotal = document.getElementById('valor-total');
           var link;
   
-        botoesCotas.forEach(function (botao) {
-    botao.classList.remove('cota-selected');
-
-    var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
-
-    if (valorBotao === valorAtual) {
-        botao.classList.add('cota-selected');
-
-        switch (valorBotao) {
-
-            case 10:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946666265&store=26409";
-                break;
-
-            case 20:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946666265&store=26409";
-                break;
-
-            case 30:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640967331562&store=26409";
-                break;
-
-            case 40:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640956653733&store=26409";
-                break;
-
-            case 60:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640967331562&store=26409";
-                break;
-
-            case 100:
-                link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946997136&store=26409";
-                break;
-        }
-    }
-});
-
+          botoesCotas.forEach(function (botao) {
+              botao.classList.remove('cota-selected');
+              var valorBotao = parseInt(botao.querySelector('.cota-qtd').innerText.trim());
+              if (valorBotao === valorAtual) {
+                  botao.classList.add('cota-selected');
+                  switch (valorBotao) {
+                      case 20:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946666265&store=26409";
+                          break;
+                      case 40:
+                      case 40:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640956653733&store=26409";
+                          break;
+                      case 60:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640967331562&store=26409";
+                          break;
+                      case 80:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640954421532&store=26409";
+                          break;
+                      case 100:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640946997136&store=26409";
+                          break;
+                              case 200:
+                          link = "https://seguro.oseuvivasorte.online/api/public/shopify?product=2640941621775&store=26409";
+                          break;
                   
                       default:
                           break;
@@ -447,14 +428,14 @@ Lembre-se sempre de jogar de forma saudável e responsável, aproveitando a dive
 <script>
   const mensagens = [
     "João P. acabou de comprar 100 cotas!",
-    "Larissa F. acabou de comprar 80 cotas!",
+    "Larissa F. acabou de comprar 40 cotas!",
     "Diego S. acabou de comprar 60 cotas!",
     "Juliana M. acabou de comprar 100 cotas!",
-    "Bruno T. acabou de comprar 200 cotas!",
+    "Bruno T. acabou de comprar 100 cotas!",
     "Carla R. acabou de comprar 20 cotas!",
     "Felipe N. acabou de comprar 60 cotas!",
     "Amanda C. acabou de comprar 40 cotas!",
-    "Pedro V. acabou de comprar 80 cotas!",
+    "Pedro V. acabou de comprar 60 cotas!",
     "Thais L. acabou de comprar 100 cotas!",
     // Continue adicionando até 100
   ];
