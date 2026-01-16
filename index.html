@@ -112,86 +112,106 @@ src="https://www.facebook.com/tr?id=634450442547482&ev=PageView&noscript=1"
   
       <!-- COTAS -->
   
-      <div class="cotas">
-  
-        <div class="cotas-one">
-                    <button type="button" class="cota" onclick="selecionarValor(10)">
-              <div class="cota-qtd">                    
-                  +10
-              </div>
-              <h1>R$9,90</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-  
-          <button type="button" class="cota" onclick="selecionarValor(20)">
-              <div class="cota-qtd">
-                  +20
-              </div>
-              <h1>R$19,80</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-  
-          <button type="button" class="cota" onclick="selecionarValor(30)">
-              <div class="cota-qtd">
-              +30
-              </div>
-              <h1>R$29,70</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-  
-          
-  
-        </div>
-  
-        <div class="cotas-one">
-            
-            <button type="button" class="cota" onclick="selecionarValor(40)">
-              <i class="bi bi-star-fill destaque"></i>
-              <div class="cota-qtd">
-              +40
-              </div>
-              <h1>R$39,60</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-  
-          
-  
-          <button type="button" class="cota" onclick="selecionarValor(60)">
-              <div class="cota-qtd">
-              +60
-              </div>
-              <h1>R$59,40</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-          
-          <button type="button" class="cota" onclick="selecionarValor(100)">
-              <div class="cota-qtd">
-              +100
-              </div>
-              <h1>R$99,00</h1>
-              <h2>SELECIONAR</h2>
-          </button>
-  
-  
-  
-        </div>
-  
-      </div>
-  
+     <style>
+    .cota.selected {
+        border: 2px solid #0084ff;
+        background: #e9f3ff;
+    }
+</style>
+
+<div class="cotas">
+    <div class="cotas-one">
+
+        <button type="button" class="cota" onclick="selecionarValor(10)" id="cota10">
+            <div class="cota-qtd">+10</div>
+            <h1>R$9,90</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(20)" id="cota20">
+            <div class="cota-qtd">+20</div>
+            <h1>R$19,80</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(30)" id="cota30">
+            <div class="cota-qtd">+30</div>
+            <h1>R$29,70</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
     </div>
-  
-    <div class="container-principal">
-  
-  
+
+    <div class="cotas-one">
+
+        <button type="button" class="cota" onclick="selecionarValor(40)" id="cota40">
+            <i class="bi bi-star-fill destaque"></i>
+            <div class="cota-qtd">+40</div>
+            <h1>R$39,60</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(60)" id="cota60">
+            <div class="cota-qtd">+60</div>
+            <h1>R$59,40</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+        <button type="button" class="cota" onclick="selecionarValor(100)" id="cota100">
+            <div class="cota-qtd">+100</div>
+            <h1>R$99,00</h1>
+            <h2>SELECIONAR</h2>
+        </button>
+
+    </div>
+</div>
+
+<div class="container-principal">
     <div class="contador-cotas">
-          <span>
-              <button type="button" class="btn-contador-cotas" onclick="decrementar(10)">-</button>
-          </span>
-          <input type="number" id="numero" class="input-contador-cotas" value="0" min="0" oninput="highlightButton()">
-          <span>
-              <button type="button" class="btn-contador-cotas" onclick="incrementar(10)">+</button>
-          </span>
-      </div>
+        <span>
+            <button type="button" class="btn-contador-cotas" onclick="alterar('-')">-</button>
+        </span>
+        <input type="number" id="numero" class="input-contador-cotas" value="20" min="0" readonly>
+        <span>
+            <button type="button" class="btn-contador-cotas" onclick="alterar('+')">+</button>
+        </span>
+    </div>
+</div>
+
+<script>
+    const valores = [10, 20, 30, 40, 60, 100];
+
+    function selecionarValor(v) {
+        document.getElementById("numero").value = v;
+        destacarBotao(v);
+    }
+
+    function alterar(tipo) {
+        let atual = parseInt(document.getElementById("numero").value);
+        let index = valores.indexOf(atual);
+
+        if (tipo === "+" && index < valores.length - 1) {
+            selecionarValor(valores[index + 1]);
+        } 
+        else if (tipo === "-" && index > 0) {
+            selecionarValor(valores[index - 1]);
+        }
+    }
+
+    function destacarBotao(v) {
+        valores.forEach(num => {
+            const botao = document.getElementById("cota" + num);
+            botao.classList.remove("selected");
+        });
+        document.getElementById("cota" + v).classList.add("selected");
+    }
+
+    // deixa o de 20 pré-selecionado
+    window.onload = () => {
+        selecionarValor(20);
+    };
+</script>
+
   
       <button type="button" id="btn-adicionar-carrinho" class="adc-carrinho" onclick="adicionarAoCarrinho()" disabled="">
           <i class="bi bi-cart-fill"></i> COMPRAR TÍTULOS
